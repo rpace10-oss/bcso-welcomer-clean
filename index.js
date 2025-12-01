@@ -66,7 +66,7 @@ client.on("guildMemberAdd", async (member) => {
     });
 
     const embed = new EmbedBuilder()
-      .setTitle("❤️ Welcome to the Blaine County Sheriff's Office!")
+      .setTitle("<:bcso:1445119544518643867> Welcome to the Blaine County Sheriff's Office!")
       .setDescription(
         `Hey ${member}, welcome to **BCSO**!\n` +
         `You are our **${memberCount}** member.\n\n` +
@@ -80,7 +80,10 @@ client.on("guildMemberAdd", async (member) => {
       .setColor(0x4B3621) // BCSO brown
       .setThumbnail(avatarURL) // 👈 top-right PFP
       .setImage("https://blazesmods.com/cdn/shop/files/PATROL13.png?v=1721824805&width=1100") // 👈 big bottom image
-      .setFooter({ text: "Blaine County Sheriff's Office • Serve & Protect" });
+      .setFooter({
+  text: "Blaine County Sheriff's Office • Serve & Protect",
+  iconURL: "https://cdn.discordapp.com/attachments/1443657151150166039/1445120501411483771/Normal2.png?ex=692f30d8&is=692ddf58&hm=d3cdaa544514afefe73eed18b48167d51cba0221fb1e9a1b58efc94bbd80c511"
+});
 
     await channel.send({
       content: `Welcome to **BCSO**, ${member}!`,
