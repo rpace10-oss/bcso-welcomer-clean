@@ -24,13 +24,12 @@ client.once("ready", () => {
 // Runs every time someone joins the server
 client.on("guildMemberAdd", async (member) => {
   try {
-    // Ignore other bots
     if (member.user.bot) return;
 
     // =========================
     // 1. Auto-role
     // =========================
-    const roleId = process.env.AUTOROLE_ID || "1443657149090762889";
+    const roleId = process.env.AUTOROLE_ID;
     const role = member.guild.roles.cache.get(roleId);
 
     if (role) {
@@ -50,7 +49,6 @@ client.on("guildMemberAdd", async (member) => {
       return;
     }
 
-    // Pull channel IDs from .env
     const rulesChannelId   = process.env.RULES_CHANNEL_ID;
     const ticketsChannelId = process.env.TICKETS_CHANNEL_ID;
     const appsChannelId    = process.env.APPLICATIONS_CHANNEL_ID;
@@ -61,34 +59,27 @@ client.on("guildMemberAdd", async (member) => {
 
     const memberCount = member.guild.memberCount;
 
+    // 👤 user PFP for top-right thumbnail
+    const avatarURL = member.user.displayAvatarURL({
+      extension: "png",
+      size: 256
+    });
+
     const embed = new EmbedBuilder()
-      .setTitle("🤎 Welcome to the Blaine County Sheriff's Office!")
+      .setTitle("❤️ Welcome to the Blaine County Sheriff's Office!")
       .setDescription(
         `Hey ${member}, welcome to **BCSO**!\n` +
         `You are our **${memberCount}** member.\n\n` +
         `Use the links below to get started:`
       )
       .addFields(
-        {
-          name: "📑 Server Rules",
-          value: rulesChannel,
-          inline: true
-        },
-        {
-          name: "🎫 Support & Tickets",
-          value: ticketsChannel,
-          inline: true
-        },
-        {
-          name: "👮‍♂️ BCSO Applications",
-          value: appsChannel,
-          inline: true
-        }
+        { name: "📑 Server Rules", value: rulesChannel, inline: true },
+        { name: "🧾 Support & Tickets", value: ticketsChannel, inline: true },
+        { name: "👮‍♂️ BCSO Applications", value: appsChannel, inline: true }
       )
-      // BCSO color (brown). If you want gold use 0xC6A667
-      .setColor(0x4B3621)
-      // OPTIONAL: replace with your BCSO banner image URL
-      .setImage("https://example.com/your-bcso-banner.png")
+      .setColor(0x4B3621) // BCSO brown
+      .setThumbnail(avatarURL) // 👈 top-right PFP
+      .setImage("https://blazesmods.com/cdn/shop/files/PATROL13.png?v=1721824805&width=1100") // 👈 big bottom image
       .setFooter({ text: "Blaine County Sheriff's Office • Serve & Protect" });
 
     await channel.send({
@@ -100,6 +91,7 @@ client.on("guildMemberAdd", async (member) => {
     console.error("Error in guildMemberAdd:", err);
   }
 });
+
 
 // Log the bot in
 client.login(process.env.DISCORD_TOKEN);
