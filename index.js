@@ -1,4 +1,6 @@
 require("dotenv").config();
+const express = require("express");
+
 const {
   Client,
   GatewayIntentBits,
@@ -101,3 +103,17 @@ client.on("guildMemberAdd", async (member) => {
 
 // Log the bot in
 client.login(process.env.DISCORD_TOKEN);
+
+// =========================
+// Simple HTTP server for Render / UptimeRobot
+// =========================
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+app.get("/", (req, res) => {
+  res.send("BCSO Welcomer bot is running.");
+});
+
+app.listen(PORT, () => {
+  console.log(`HTTP server listening on port ${PORT}`);
+});
