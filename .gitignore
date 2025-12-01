@@ -1,0 +1,15 @@
+node_modules/
+
+# NEVER COMMIT ENV FILES
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+logs/
+*.log
+dist/
+build/
+.DS_Store
+Thumbs.db
