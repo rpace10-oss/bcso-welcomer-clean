@@ -75,7 +75,7 @@ client.on("guildMemberAdd", async (member) => {
       .setColor(0x4B3621) // SASO brown
 
       // 🔹 Thumbnail = your badge icon
-      .setThumbnail("https://cdn.discordapp.com/attachments/1443657151150166039/1445120501411483771/Normal2.png?ex=692f30d8&is=692ddf58&hm=d3cdaa544514afefe73eed18b48167d51cba0221fb1e9a1b58efc94bbd80c511")
+      .setThumbnail("https://cdn.discordapp.com/attachments/1443657155831009359/1445780848484941904/Adobe_Express_-_file_1.png?ex=693197d7&is=69304657&hm=2e1e408ae6d524d444fcdaf2d1ab5f065047c75b7374e1bf27f872ee8bf41c5d&")
 
       // 🔹 Big SASO image at the bottom
       .setImage("https://recklemodifications.com/cdn/shop/files/FiveM_b3095_GTAProcess2025-07-2614-04-32_266.png?v=1759722740&width=713")
@@ -83,7 +83,7 @@ client.on("guildMemberAdd", async (member) => {
       // 🔹 Footer with badge icon (bottom-left)
       .setFooter({
         text: "San Andreas Sheriff's Office • Serve & Protect",
-        iconURL: "https://cdn.discordapp.com/attachments/1443657151150166039/1445120501411483771/Normal2.png?ex=692f30d8&is=692ddf58&hm=d3cdaa544514afefe73eed18b48167d51cba0221fb1e9a1b58efc94bbd80c511"
+        iconURL: "https://cdn.discordapp.com/attachments/1443657155831009359/1445780848484941904/Adobe_Express_-_file_1.png?ex=693197d7&is=69304657&hm=2e1e408ae6d524d444fcdaf2d1ab5f065047c75b7374e1bf27f872ee8bf41c5d&"
       });
 
     await channel.send({
