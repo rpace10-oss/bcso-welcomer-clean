@@ -66,27 +66,30 @@ client.on("guildMemberAdd", async (member) => {
     });
 
     const embed = new EmbedBuilder()
-      .setTitle("<:bcso:1445119544518643867> Welcome to the Blaine County Sheriff's Office!")
+      .setTitle("<:bcso:1445119544518643867> Welcome to the San Andreas Sheriff's Office!")
       .setDescription(
-        `Hey ${member}, welcome to **BCSO**!\n` +
+        `Hey ${member}, welcome to **SASO**!\n` +
         `You are our **${memberCount}** member.\n\n` +
         `Use the links below to get started:`
       )
       .addFields(
         { name: "📑 Server Rules", value: rulesChannel, inline: true },
         { name: "🧾 Support & Tickets", value: ticketsChannel, inline: true },
-        { name: "👮‍♂️ BCSO Applications", value: appsChannel, inline: true }
+        { name: "👮‍♂️ SASO Applications", value: appsChannel, inline: true }
       )
-      .setColor(0x4B3621) // BCSO brown
-      .setThumbnail(avatarURL) // 👈 top-right PFP
-      .setImage("https://blazesmods.com/cdn/shop/files/PATROL6.png?v=1721824776&width=1100") // 👈 big bottom image
+      .setColor(0x4B3621) // SASO brown
+      .setThumbnail(avatarURL) // top-right PFP
+
+      // ⭐ NEW SASO bottom banner image
+      .setImage("https://recklemodifications.com/cdn/shop/files/FiveM_b3095_GTAProcess2025-07-2614-04-32_266.png?v=1759722740&width=713")
+
       .setFooter({
-  text: "Blaine County Sheriff's Office • Serve & Protect",
-  iconURL: "https://cdn.discordapp.com/attachments/1443657151150166039/1445120501411483771/Normal2.png?ex=692f30d8&is=692ddf58&hm=d3cdaa544514afefe73eed18b48167d51cba0221fb1e9a1b58efc94bbd80c511"
-});
+        text: "San Andreas Sheriff's Office • Serve & Protect",
+        iconURL: "https://cdn.discordapp.com/attachments/1443657151150166039/1445120501411483771/Normal2.png?ex=692f30d8&is=692ddf58&hm=d3cdaa544514afefe73eed18b48167d51cba0221fb1e9a1b58efc94bbd80c511"
+      });
 
     await channel.send({
-      content: `Welcome to **BCSO**, ${member}!`,
+      content: `Welcome to **SASO**, ${member}!`,
       embeds: [embed]
     });
 
@@ -94,7 +97,6 @@ client.on("guildMemberAdd", async (member) => {
     console.error("Error in guildMemberAdd:", err);
   }
 });
-
 
 // Log the bot in
 client.login(process.env.DISCORD_TOKEN);
@@ -106,7 +108,7 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 app.get("/", (req, res) => {
-  res.send("BCSO Welcomer bot is running.");
+  res.send("SASO Welcomer bot is running.");
 });
 
 app.listen(PORT, () => {
